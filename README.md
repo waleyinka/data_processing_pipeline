@@ -22,5 +22,43 @@ The project maintains a clean, organized structure to isolate raw data, processe
 │   └── cleaned_sales_data.csv
 ├── monitor.sh
 └── preprocess.sh
+```
+
+## Automation and Scheduling (Cron)
+
+The pipeline's core strength lies in its automation, managed via the Linux cron scheduler.
+
+1. preprocess.sh (ETL)
+
+This script is responsible for:
+
+- Reading *sales_data.csv* from the *input/* directory.
+
+- Performing data cleaning including removing unwanted column, fitering out rows.
+
+- Saving the final, cleaned data to *output/cleaned_sales_data.csv*.
+
+- Logging all activities to *logs/preprocess.log*.
+
+- ***Schedule:*** Currently set to run daily at 12:00 AM ```0 0 * * *```.
+
+2. monitor.sh (Continuous Integrity Check)**
+
+This script provides continuous oversight of the system's health.
+
+- Search for critical patterns (e.g., "ERROR" or "FAILED") in log file.
+
+- Generates a concise status report, if errors are found, write them to a summary file *monitor_summary.txt*.
+
+- ***Schedule:*** Currently set to run daily at 12:05 AM ```5 0 * * *```.
+ 
+##### Cron Job Schedule
+
+*Crontab Configuration (crontab -e view)*
+
+![Crontab Configuration Entries] (https://github.com/waleyinka/data_processing_pipeline/blob/main/assets/crontab_entries.png?raw=true)
 
 
+*Active Job Confirmation (crontab -l view)*
+
+![Active Cron Job Confirmation] (https://github.com/waleyinka/data_processing_pipeline/blob/main/assets/crontab_active_confirmation.png?raw=true)
