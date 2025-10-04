@@ -55,9 +55,7 @@ This script provides continuous oversight of the system's health.
 ##### Cron Job Schedule
 
 *Crontab Configuration (crontab -e view)*
-
-![Crontab Configuration Entries] (./assets/crontab-e.png)
+<img width="1919" height="1019" alt="crontab-e" src="https://github.com/user-attachments/assets/78b5e0f3-dd5b-42a9-b297-3d65beb5ef1c" />
 
 *Active Job Confirmation (crontab -l view)*
-
-![Active Cron Job Confirmation] (./assets/crontab-l.png)
+<img width="1919" height="762" alt="crontab-l" src="https://github.com/user-attachments/assets/a871cfbd-5e58-4fc5-bd44-8da9406a7071" />
