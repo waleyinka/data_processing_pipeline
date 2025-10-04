@@ -56,8 +56,8 @@ This script provides continuous oversight of the system's health.
 
 *Crontab Configuration (crontab -e view)*
 
-![Crontab Configuration Entries] (https://github.com/waleyinka/data_processing_pipeline/blob/main/assets/crontab%20-e.png)
+![Crontab Configuration Entries] (./assets/crontab-e.png)
 
 *Active Job Confirmation (crontab -l view)*
 
-![Active Cron Job Confirmation] (https://github.com/waleyinka/data_processing_pipeline/blob/main/assets/crontab%20-l.png)
+![Active Cron Job Confirmation] (./assets/crontab-l.png)
