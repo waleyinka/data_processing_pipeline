@@ -59,3 +59,7 @@ This script provides continuous oversight of the system's health.
 ## Active Job Confirmation *(crontab -l view)*
 
 <img width="1919" height="762" alt="crontab-l" src="https://github.com/user-attachments/assets/a871cfbd-5e58-4fc5-bd44-8da9406a7071" />
+
+## File Permissions
+
+
