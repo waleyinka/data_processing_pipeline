@@ -12,11 +12,15 @@ The project maintains a clean, organized structure to isolate raw data, processe
 
 ```markdown
 
-| Directory/File | Purpose | Security Note |
-| :--- | :--- | :--- |
-| **`input/`** | Repository for raw input files (e.g., `sales_data.csv`). | **Highly Restricted** (Only owner can write). |
-| **`output/`** | Storage for cleaned and processed data. | Standard access. |
-| **`logs/`** | Contains all operational and monitoring records. | **Restricted Access** (Only owner and authorized group can read). |
-| **`preprocess.sh`** | Core script for data cleaning, transformation, and validation. | Executes the primary ETL logic. |
-| **`monitor.sh`** | Script for log analysis, error detection, and generating status reports. | Scheduled to run every 5 minutes. |
-| **`README.md`** | This documentation file. | |
+~/data_pipeline/
+├── input/
+│   └── sales_data.csv
+├── logs/
+│   ├── preprocess.log
+│   └── monitor_summary.txt
+├── output/
+│   └── cleaned_sales_data.csv
+├── monitor.sh
+└── preprocess.sh
+
+
