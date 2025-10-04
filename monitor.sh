@@ -21,11 +21,11 @@ for LOG_FILE in "$LOG_DIR"/*.log; do
 		#echo "$ERROR_COUNT"
 
 		if [ "$ERROR_COUNT" -gt 0 ]; then
-			echo -e "\n 🚨 ATTENTION NEEDED: There are $ERROR_COUNT $PATTERN Error(s) found in: $LOG_FILE"
+			echo "🚨 ATTENTION NEEDED: There are $ERROR_COUNT $PATTERN Error(s) found in: $LOG_FILE"
 		else
 			echo "✅ SUCCESS: No Error/Failed patterns found in $LOG_FILE"
 		fi
 	done
 done
 	
-echo -e "\nLog analysis completed"
+echo -e "\n--- Log analysis completed ---"
