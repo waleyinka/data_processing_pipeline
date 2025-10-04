@@ -62,4 +62,4 @@ This script provides continuous oversight of the system's health.
 
 ## File Permissions
 
-
+<img width="1909" height="435" alt="permissions" src="https://github.com/user-attachments/assets/eb8da5ed-2a58-427c-8d47-044790039d89" />
