@@ -1,31 +1,27 @@
 #!/bin/bash
 
 
-# There would two log files, preprocess.log and preprocess_cronjob.log both saved inside Log_dir
-
 LOG_DIR="/home/omowalefst/data_pipeline/logs"
-ERRORS_PATTERNS=("ERROR" "FAILED")
-
+LOG_FILE="$LOG_DIR/preprocess.log"
+ERROR_PATTERNS=("ERROR" "FAILED")
+REPORT_FILE="/home/omowalefst/data_pipeline/logs/monitor_summary.log"
 
 echo "--- Log Analysis Report ($(date)) ---"
 
+echo -e "\n======================================"
 
-for LOG_FILE in "$LOG_DIR"/*.log; do
+for PATTERN in "${ERROR_PATTERNS[@]}"; do
+	echo -e "\nSearching for $PATTERN logs in $LOG_FILE..."
 
-	for PATTERN in ${ERROR_PATTERNS[@]}; do
- 		echo -e "\nSearching for $PATTERN logs in $LOG_FILE file"
-		grep "$PATTERN" "$LOG_FILE"
+	ERROR_COUNT=$(grep -c -i "$PATTERN" "$LOG_FILE")
+ 	echo "Number of '$PATTERN' lines found: $ERROR_COUNT"
 
-		#echo -e "\nNumber of $PATTERN logs found in $LOG_FILE file"
-		ERROR_COUNT=$(grep -c "$PATTERN" "$LOG_FILE")
-		#echo "$ERROR_COUNT"
-
-		if [ "$ERROR_COUNT" -gt 0 ]; then
-			echo "🚨 ATTENTION NEEDED: There are $ERROR_COUNT $PATTERN Error(s) found in: $LOG_FILE"
-		else
-			echo "✅ SUCCESS: No Error/Failed patterns found in $LOG_FILE"
-		fi
-	done
+	if [ "$ERROR_COUNT" -eq 0 ]; then
+		echo "✅ SUCCESS: No $PATTERN found."
+	else
+		echo -e "🚨 ATTENTION NEEDED: There are $ERROR_COUNT $PATTERN line(s) in $LOG_FILE"
+	fi
 done
-	
-echo -e "\n--- Log analysis completed ---"
+
+
+echo -e "\nLog analysis completed and result saved in: $REPORT_FILE"
