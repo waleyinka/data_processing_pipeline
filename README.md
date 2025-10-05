@@ -28,9 +28,7 @@ The project maintains a clean, organized structure to isolate raw data, processe
 
 The pipeline's core strength lies in its automation, managed via the Linux cron scheduler.
 
-1. preprocess.sh (ETL)
-
-This script is responsible for:
+1. **preprocess.sh (ETL)**
 
 - Reading ***sales_data.csv*** from the ***input/*** directory.
 
@@ -42,7 +40,7 @@ This script is responsible for:
 
 - ***Schedule:*** Currently set to run daily at 12:00 AM ```0 0 * * *```.
 
-2. monitor.sh (Continuous Integrity Check)
+2. **monitor.sh (Continuous Integrity Check)**
 
 - Search for critical patterns (e.g., "ERROR" or "FAILED") in log file.
 
