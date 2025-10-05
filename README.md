@@ -30,23 +30,23 @@ The pipeline's core strength lies in its automation, managed via the Linux cron 
 
 1. **preprocess.sh (ETL)**
 
-- Reading ***sales_data.csv*** from the ***input/*** directory.
+ - Reading ***sales_data.csv*** from the ***input/*** directory.
 
-- Performing data cleaning including removing unwanted column, fitering out rows.
+ - Performing data cleaning including removing unwanted column, fitering out rows.
 
-- Saving the final, cleaned data to ***output/cleaned_sales_data.csv***.
+ - Saving the final, cleaned data to ***output/cleaned_sales_data.csv***.
 
-- Logging all activities to ***logs/preprocess.log***.
+ - Logging all activities to ***logs/preprocess.log***.
 
-- ***Schedule:*** Currently set to run daily at 12:00 AM ```0 0 * * *```.
+ - ***Schedule:*** Currently set to run daily at 12:00 AM ```0 0 * * *```.
 
 2. **monitor.sh (Continuous Integrity Check)**
 
-- Search for critical patterns (e.g., "ERROR" or "FAILED") in log file.
+ - Search for critical patterns (e.g., "ERROR" or "FAILED") in log file.
 
-- Generates a concise status report, if errors are found, write them to a summary file *monitor_summary.txt*.
+ - Generates a concise status report, if errors are found, write them to a summary file *monitor_summary.txt*.
 
-- ***Schedule:*** Currently set to run daily at 12:05 AM ```5 0 * * *```.
+ - ***Schedule:*** Currently set to run daily at 12:05 AM ```5 0 * * *```.
  
 ## Crontab Configuration *(crontab -e view)*
 
