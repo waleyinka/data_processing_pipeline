@@ -52,11 +52,11 @@ This script is responsible for:
  
 ## Crontab Configuration *(crontab -e view)*
 
-<img width="1919" height="1019" alt="crontab-e" src="https://github.com/user-attachments/assets/78b5e0f3-dd5b-42a9-b297-3d65beb5ef1c" />
+<img width="1917" height="1011" alt="crontab-e" src="https://github.com/user-attachments/assets/086f191e-5a4b-4279-a1a1-41ca83cdb4f8" />
 
 ## Active Job Confirmation *(crontab -l view)*
 
-<img width="1919" height="762" alt="crontab-l" src="https://github.com/user-attachments/assets/a871cfbd-5e58-4fc5-bd44-8da9406a7071" />
+<img width="1918" height="885" alt="crontab-l" src="https://github.com/user-attachments/assets/e0cd91af-c419-446e-b067-59dd8a7f8ca1" />
 
 ## File Permissions
 
