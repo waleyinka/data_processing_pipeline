@@ -1,27 +1,23 @@
 #!/bin/bash
 
+LOG_DIR=~/data_pipeline/logs
+LOG_FILE=$LOG_DIR/preprocess.log
+LOG_SUMMARY=$LOG_DIR/monitor_summary.log
+CURRENT_DATE_TIME=$(date +"%Y-%m-%d %T")
 
-LOG_DIR="/home/omowalefst/data_pipeline/logs"
-LOG_FILE="$LOG_DIR/preprocess.log"
-ERROR_PATTERNS=("ERROR" "FAILED")
-REPORT_FILE="/home/omowalefst/data_pipeline/logs/monitor_summary.log"
+echo -e  "\n=============================================" >> $LOG_SUMMARY
 
-echo "--- Log Analysis Report ($(date)) ---"
+echo -e "\n--- Log Analysis Report $CURRENT_DATE_TIME ---" >> $LOG_SUMMARY
 
-echo -e "\n======================================"
+echo -e "\n----------------------------------------------" >> $LOG_SUMMARY
 
-for PATTERN in "${ERROR_PATTERNS[@]}"; do
-	echo -e "\nSearching for $PATTERN logs in $LOG_FILE..."
+ERRORS=$(grep -iE "ERROR|FAILED" "$LOG_FILE")
 
-	ERROR_COUNT=$(grep -c -i "$PATTERN" "$LOG_FILE")
- 	echo "Number of '$PATTERN' lines found: $ERROR_COUNT"
+if [[ -z "$ERRORS" ]]; then
+	echo -e "\n✅ SUCCESS: No errors found in $LOG_FILE" >> $LOG_SUMMMARY
+else
+	ERROR_COUNT=$(echo "ERRORS" | grep -c .)
+	echo -e "\n🚨 ATTENTION NEEDED: Found $ERROR_COUNT error line(s) in $LOG_FILE" >> $LOG_SUMMARY
+fi
 
-	if [ "$ERROR_COUNT" -eq 0 ]; then
-		echo "✅ SUCCESS: No $PATTERN found."
-	else
-		echo -e "🚨 ATTENTION NEEDED: There are $ERROR_COUNT $PATTERN line(s) in $LOG_FILE"
-	fi
-done
-
-
-echo -e "\nLog analysis completed and result saved in: $REPORT_FILE"
+echo "Log analysis for $CURRENT_DATE_TIME completed and result saved in: $LOG_SUMMARY"
