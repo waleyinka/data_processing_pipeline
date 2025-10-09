@@ -44,17 +44,17 @@ The pipeline's core strength lies in its automation, managed via the Linux cron 
 
  - Search for critical patterns (e.g., "ERROR" or "FAILED") in log file.
 
- - Generates a concise status report, if errors are found, write them to a summary file *monitor_summary.txt*.
+ - Generates a concise status report, if errors are found, write them to a summary file *monitor_summary.log*.
 
  - ***Schedule:*** Currently set to run daily at 12:05 AM ```5 0 * * *```.
  
 ## Crontab Configuration *(crontab -e view)*
 
-<img width="1917" height="1011" alt="crontab-e" src="https://github.com/user-attachments/assets/086f191e-5a4b-4279-a1a1-41ca83cdb4f8" />
+<img width="1919" height="1021" alt="crontab-e" src="https://github.com/user-attachments/assets/4df5f7e1-a8b7-4b12-9126-7c69a0474893" />
 
 ## Active Job Confirmation *(crontab -l view)*
 
-<img width="1918" height="885" alt="crontab-l" src="https://github.com/user-attachments/assets/e0cd91af-c419-446e-b067-59dd8a7f8ca1" />
+<img width="1919" height="800" alt="crontab-l" src="https://github.com/user-attachments/assets/626d9ba1-0a1a-48c3-b630-23d8a72f1819" />
 
 ## File Permissions
 
